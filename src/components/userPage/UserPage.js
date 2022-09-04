@@ -23,6 +23,10 @@ const columns = [
     selector: (row) =>
       row.bankDetails?.bankName ? row.bankDetails.bankName : "-",
   },
+  {
+    name: "Designation",
+    selector: (row) => (row.designation ? row.designation : "-"),
+  },
 ];
 
 function UserPage() {
