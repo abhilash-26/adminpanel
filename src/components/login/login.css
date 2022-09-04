@@ -1,0 +1,33 @@
+.login_container{
+    /* border: 1px solid red; */
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:start;
+    align-items: center;
+    padding-top: 10%;
+}
+.input{
+    /* width: 10%; */
+    height: 30px;
+   border: 2px solid black;
+   padding: 5px;
+   font-size: medium;
+   margin: 15px;
+}
+.label_input{
+    font-size: 18px;
+}
+.input_container{
+    margin: 20px;
+    border: 1px solid red;
+}
+.login_button{
+    height: 35px;
+    width: 85px;
+    background-color:black;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}

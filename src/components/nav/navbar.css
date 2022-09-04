@@ -1,0 +1,19 @@
+.nav_container{
+    height: 90vh;
+  /* background-color: blue; */
+  width: 10vw;
+  margin-top: 5vh;
+  padding-left: 20px;
+  padding-right: 10px;
+  /* padding-top: 20px; */
+  border-right: 0.5px dotted black;
+  /* border: 1px solid red; */
+  /* position: sticky; */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+}
+.link_comp{
+  text-decoration: none;
+}

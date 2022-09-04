@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import IntroUpload from "./components/Introimage/IntroUpload";
+import Login from "./components/login/Login";
+import Navbar from "./components/nav/Navbar";
+import TopNav from "./components/topNav/TopNav";
+import UserPage from "./components/userPage/UserPage";
+import { Switch, Route, withRouter, useHistory } from "react-router-dom";
 
 function App() {
+  const [login, setLogin] = useState(true);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!login && <Login />}
+      {login && (
+        <div>
+          <TopNav />
+          <Navbar />
+
+          <div className="mid_section">
+            <Switch>
+              <Route path="/intro" component={IntroUpload} />
+              <Route path="/users" component={UserPage} />
+            </Switch>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

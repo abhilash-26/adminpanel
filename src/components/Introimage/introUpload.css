@@ -1,0 +1,21 @@
+.container{
+    /* background-color: aqua; */
+    width: 90%;
+    padding: 10px;
+    /* color: white; */
+}
+.slide_header{
+    font-size: 20px;
+    font-family:'Times New Roman', Times, serif;
+}
+.upload,.view,.delete,.view_upload{
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.delete{
+    background-color: red;
+    /* color: white; */
+    text-transform: capitalize;
+    font-size: medium;
+}

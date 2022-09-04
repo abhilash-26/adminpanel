@@ -1,0 +1,27 @@
+.slide_container{
+    padding: 26px;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 20px;
+    border-bottom: 2px solid black;
+}
+.button_box{
+    /* border: 1px solid green; */
+    width: 30%;
+    display: flex;
+    /* margin: 15px; */
+    justify-content: space-around;
+}
+.slide_image{
+    width: 300px;
+}
+.delete{
+    margin: 10px;
+    border: none;
+    color: white;
+}
+.upload{
+    border: none;
+}

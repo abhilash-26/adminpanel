@@ -1,0 +1,9 @@
+.userpage_container{
+    font-size: large;
+    /* border: 1px solid red; */
+    width: 90%;
+    /* display: flex; */
+    /* align-items: flex-start; */
+    justify-content: flex-start;
+    /* border: 1px solid red; */
+}

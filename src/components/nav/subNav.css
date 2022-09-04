@@ -1,0 +1,14 @@
+.subnav_container{
+    /* border: 1px solid black; */
+    padding: 15px;
+    /* color: white; */
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+    
+}
+
+.subnav_container:hover{
+    background-color: gray;
+    color: white;
+}
