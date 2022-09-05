@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = localStorage.getItem("isLoggedIn");
+let initialState = localStorage.getItem("isLoggedIn");
 if (initialState == null) {
   initialState = 0;
 }
