@@ -4,12 +4,14 @@ import axios from "axios";
 
 function Slide({ slide }) {
   const [selectedFile, setSelectedFile] = useState();
+  const [uploadLoad, setUploadLoad] = useState(false);
   const handleFileChange = (e) => {
     console.log(e.target.files[0]);
     setSelectedFile(e.target.files[0]);
     console.log(selectedFile);
   };
   const handleFileUpload = async () => {
+    setUploadLoad(true);
     const formData = new FormData();
     formData.append("image", selectedFile);
     formData.append("category", "companyLogo");
@@ -34,14 +36,16 @@ function Slide({ slide }) {
         },
       });
       console.log(slideData.data.data);
+      alert(`${slideData.data.meta.message}`);
     }
+    setUploadLoad(false);
   };
   const handleFileDelete = async () => {
     const result = await axios({
       method: "post",
       url: "http://103.38.50.113:3000/api/v1/intro-slide/delete-intro-slides",
       data: {
-        slideNo: slide.slideNo,
+        id: slide._id,
       },
     });
     console.log(result);
@@ -56,15 +60,22 @@ function Slide({ slide }) {
       Slide {slide.slideNo}
       <img alt="test" src={`${slide.imageUrl}`} className="slide_image" />
       <div className="button_box">
-        <input type="file" onChange={handleFileChange} />
-        <button className="upload" onClick={handleFileUpload}>
-          upload
-        </button>
+        {!uploadLoad && <input type="file" onChange={handleFileChange} />}
+
+        {!uploadLoad && (
+          <button className="upload" onClick={handleFileUpload}>
+            upload
+          </button>
+        )}
+
+        {uploadLoad && <h2>Uploading...</h2>}
         {/* <button className="view_upload">View uploaded url</button> */}
         {/* <button className="view">view</button> */}
-        <button className="delete" onClick={handleFileDelete}>
-          delete
-        </button>
+        {!uploadLoad && (
+          <button className="delete" onClick={handleFileDelete}>
+            delete
+          </button>
+        )}
       </div>
     </div>
   );
