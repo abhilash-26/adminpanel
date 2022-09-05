@@ -5,6 +5,7 @@ import Slide from "./Slide";
 
 function IntroUpload() {
   const [allSlide, setAllSlide] = useState([]);
+
   useEffect(() => {
     const getAllSlide = async () => {
       const result = await axios({
@@ -19,6 +20,7 @@ function IntroUpload() {
     };
     getAllSlide();
   }, []);
+
   return (
     <div className="container">
       <h2>Intro slide</h2>

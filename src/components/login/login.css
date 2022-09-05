@@ -1,6 +1,6 @@
 .login_container{
     /* border: 1px solid red; */
-    background-color: white;
+    background-color: #F5F5F5;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -8,13 +8,26 @@
     align-items: center;
     padding-top: 10%;
 }
+.login_sub_container{
+    background-color: white;
+    width: 30%;
+    height: 70%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height:300px;
+    min-width: 250px;
+}
 .input{
     /* width: 10%; */
     height: 30px;
-   border: 2px solid black;
+   border: 0.5px solid lightgray;
    padding: 5px;
    font-size: medium;
    margin: 15px;
+   border-radius: 5px;
 }
 .label_input{
     font-size: 18px;
@@ -26,7 +39,8 @@
 .login_button{
     height: 35px;
     width: 85px;
-    background-color:black;
+    background-color: #44A8FF;
+    border: none;
     color: white;
     border-radius: 8px;
     cursor: pointer;
