@@ -12,6 +12,7 @@ import Protected from "./components/Protected";
 function App() {
   // const [login, setLogin] = useState(false);
   const loggedInState = useSelector((state) => state.user.value.isLoggedIn);
+
   console.log(loggedInState);
   console.log(loggedInState);
   return (
