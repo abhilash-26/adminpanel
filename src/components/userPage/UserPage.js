@@ -120,10 +120,9 @@ function UserPage() {
   };
   return (
     <div className="userpage_container">
-      Users
       <div>
         <DataTable
-          title="Desserts"
+          title="Users"
           columns={columns}
           data={users}
           selectableRows
