@@ -31,6 +31,9 @@ const columns = [
 
 function UserPage() {
   const [users, setUsers] = useState([]);
+  const [selectedRows, setSelectedRows] = React.useState([]);
+  const [toggleCleared, setToggleCleared] = React.useState(false);
+  const [data, setData] = React.useState(users);
   useEffect(() => {
     const getData = async () => {
       const result = await axios({
@@ -38,10 +41,61 @@ function UserPage() {
         url: "http://103.38.50.113:3000/api/v1/users/all-user",
       });
       setUsers(result.data.data);
-      console.log(users);
+      // console.log(users);
+      // console.log(users, 90);
     };
     getData();
+  }, [toggleCleared]);
+  const handleRowSelected = React.useCallback((state) => {
+    // console.log(state);
+    setSelectedRows(state.selectedRows);
+    // console.log(selectedRows);
   }, []);
+  const deleteUser = async (id) => {
+    const result = await axios({
+      method: "post",
+      url: "http://103.38.50.113:3000/api/v1/users/delete-user",
+      data: {
+        id: id,
+      },
+    });
+    alert(result.data.meta.message);
+  };
+  const contextActions = React.useMemo(() => {
+    const handleDelete = () => {
+      if (
+        window.confirm(
+          `Are you sure you want to delete:\r ${selectedRows.map(
+            (r) => r.title
+          )}?`
+        )
+      ) {
+        setToggleCleared(!toggleCleared);
+        selectedRows.map((item) => {
+          const deletedData = deleteUser(item._id);
+          return deletedData;
+        });
+        // setData(differenceBy(data, selectedRows, "title"));
+      }
+    };
+
+    return (
+      <div
+        key="delete"
+        onClick={handleDelete}
+        style={{
+          backgroundColor: "red",
+          padding: "5px",
+          borderRadius: "5px",
+          color: "white",
+          cursor: "pointer",
+        }}
+        icon
+      >
+        Delete
+      </div>
+    );
+  }, [data, selectedRows, toggleCleared]);
   const customStyles = {
     rows: {
       style: {
@@ -68,7 +122,16 @@ function UserPage() {
     <div className="userpage_container">
       Users
       <div>
-        <DataTable columns={columns} data={users} customStyles={customStyles} />
+        <DataTable
+          title="Desserts"
+          columns={columns}
+          data={users}
+          selectableRows
+          contextActions={contextActions}
+          onSelectedRowsChange={handleRowSelected}
+          clearSelectedRows={toggleCleared}
+          pagination
+        />
       </div>
     </div>
   );
